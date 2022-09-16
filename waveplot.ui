@@ -38,8 +38,41 @@
          <enum>QFrame::Raised</enum>
         </property>
         <layout class="QHBoxLayout" name="horizontalLayout_4">
+         <property name="spacing">
+          <number>0</number>
+         </property>
+         <property name="topMargin">
+          <number>0</number>
+         </property>
+         <property name="bottomMargin">
+          <number>0</number>
+         </property>
          <item>
-          <widget class="QCustomPlot" name="plot" native="true"/>
+          <widget class="QTabWidget" name="plotTabsWidget">
+           <property name="currentIndex">
+            <number>0</number>
+           </property>
+           <widget class="QWidget" name="waveTab">
+            <attribute name="title">
+             <string>Волна</string>
+            </attribute>
+            <layout class="QVBoxLayout" name="verticalLayout_2">
+             <item>
+              <widget class="QCustomPlot" name="wavePlot" native="true"/>
+             </item>
+            </layout>
+           </widget>
+           <widget class="QWidget" name="spectrumTab">
+            <attribute name="title">
+             <string>Спектр</string>
+            </attribute>
+            <layout class="QVBoxLayout" name="verticalLayout_5">
+             <item>
+              <widget class="QCustomPlot" name="spectrumPlot" native="true"/>
+             </item>
+            </layout>
+           </widget>
+          </widget>
          </item>
         </layout>
        </widget>
@@ -66,7 +99,7 @@
         </property>
         <layout class="QVBoxLayout" name="verticalLayout">
          <item>
-          <widget class="QGroupBox" name="groupBox">
+          <widget class="QGroupBox" name="typeGBox">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
              <horstretch>0</horstretch>
@@ -74,13 +107,13 @@
             </sizepolicy>
            </property>
            <property name="title">
-            <string>Type</string>
+            <string>Тип сигнала</string>
            </property>
            <layout class="QHBoxLayout" name="horizontalLayout_3">
             <item>
              <widget class="QRadioButton" name="harmonicRBtn">
               <property name="text">
-               <string>Harmonic</string>
+               <string>Гармонический</string>
               </property>
               <property name="checked">
                <bool>true</bool>
@@ -90,7 +123,7 @@
             <item>
              <widget class="QRadioButton" name="squareRBtn">
               <property name="text">
-               <string>Square</string>
+               <string>Цифровой</string>
               </property>
              </widget>
             </item>
@@ -98,7 +131,7 @@
           </widget>
          </item>
          <item>
-          <widget class="QGroupBox" name="groupBox_2">
+          <widget class="QGroupBox" name="freqGBox">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
              <horstretch>0</horstretch>
@@ -106,7 +139,7 @@
             </sizepolicy>
            </property>
            <property name="title">
-            <string>Frequency</string>
+            <string>Частота</string>
            </property>
            <layout class="QGridLayout" name="gridLayout">
             <item row="0" column="0">
@@ -144,9 +177,120 @@
           </widget>
          </item>
          <item>
+          <widget class="QGroupBox" name="overSampleRateBox">
+           <property name="title">
+            <string>Частота передескретизации</string>
+           </property>
+           <layout class="QVBoxLayout" name="verticalLayout_3">
+            <item>
+             <widget class="FancySlider" name="overSampleBoxSlider">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="minimum">
+               <number>5</number>
+              </property>
+              <property name="maximum">
+               <number>1000</number>
+              </property>
+              <property name="sliderPosition">
+               <number>50</number>
+              </property>
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="invertedControls">
+               <bool>false</bool>
+              </property>
+              <property name="tickPosition">
+               <enum>QSlider::NoTicks</enum>
+              </property>
+              <property name="tickInterval">
+               <number>5</number>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item>
+          <widget class="QGroupBox" name="cyclesNbBox">
+           <property name="title">
+            <string>Периоды</string>
+           </property>
+           <layout class="QVBoxLayout" name="verticalLayout_4">
+            <item>
+             <widget class="FancySlider" name="cyclesNbSlider">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="minimum">
+               <number>1</number>
+              </property>
+              <property name="maximum">
+               <number>20</number>
+              </property>
+              <property name="value">
+               <number>5</number>
+              </property>
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="tickPosition">
+               <enum>QSlider::TicksBelow</enum>
+              </property>
+              <property name="tickInterval">
+               <number>0</number>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item>
+          <widget class="QGroupBox" name="harmonicsNbBox">
+           <property name="enabled">
+            <bool>true</bool>
+           </property>
+           <property name="title">
+            <string>Число гармоник</string>
+           </property>
+           <layout class="QVBoxLayout" name="verticalLayout_6">
+            <item>
+             <widget class="FancySlider" name="harmonicsNbSlider">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="minimum">
+               <number>10</number>
+              </property>
+              <property name="maximum">
+               <number>1000</number>
+              </property>
+              <property name="value">
+               <number>1000</number>
+              </property>
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item>
           <widget class="QPushButton" name="drawBtn">
            <property name="text">
-            <string>Draw</string>
+            <string>Построить</string>
            </property>
           </widget>
          </item>
@@ -178,6 +322,11 @@
    <extends>QWidget</extends>
    <header>qcustomplot.h</header>
    <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>FancySlider</class>
+   <extends>QSlider</extends>
+   <header>fancyslider.h</header>
   </customwidget>
  </customwidgets>
  <resources/>

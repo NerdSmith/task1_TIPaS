@@ -1,8 +1,14 @@
 #ifndef WAVEPLOT_H
 #define WAVEPLOT_H
 
+#include "fft_analysis.h"
+#include "math_utils.h"
 #include "qcustomplot.h"
+#include "sin_wave.h"
+#include "square_wave.h"
 #include <QWidget>
+#include <algorithm>
+#include <cmath>
 
 namespace Ui {
 class WavePlot;
@@ -18,9 +24,10 @@ public:
 private slots:
     void on_drawBtn_clicked();
 
+    void on_squareRBtn_toggled(bool checked);
+
 private:
     Ui::WavePlot* ui;
-    //    QCustomPlot* plot;
 
 private:
     void setWindowSettings();

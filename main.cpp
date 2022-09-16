@@ -1,12 +1,12 @@
-#include "waveplot.h"
 #include <QApplication>
 
-int main(int argc, char* argv[])
-{
-    QApplication a(argc, argv);
-    WavePlot w;
+#include "waveplot.h"
 
-    w.show();
+int main(int argc, char* argv[]) {
+  QApplication a(argc, argv);
+  WavePlot w;
 
-    return a.exec();
+  w.show();
+
+  return a.exec();
 }

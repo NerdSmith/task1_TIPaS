@@ -24,11 +24,21 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 
 SOURCES += \
+    fancyslider.cpp \
+    fft_analysis.cpp \
         main.cpp \
+    math_utils.cpp \
+    sin_wave.cpp \
+    square_wave.cpp \
         waveplot.cpp \
     qcustomplot.cpp
 
 HEADERS += \
+    fancyslider.h \
+    fft_analysis.h \
+    math_utils.h \
+    sin_wave.h \
+    square_wave.h \
         waveplot.h \
     qcustomplot.h
 
