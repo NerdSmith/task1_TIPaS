@@ -23,7 +23,7 @@
 #### 1 hz
 ![alt text](https://github.com/NerdSmith/task1_TIPaS/blob/0b3440546f1fa2e82c4cac28dadc37f86a5b4ece/screenshots/square1hz.png?raw=true)
 #### 2 hz
-![alt text](https://github.com/NerdSmith/task1_TIPaS/blob/0b3440546f1fa2e82c4cac28dadc37f86a5b4ece/screenshots/squarehz.png?raw=true)
+![alt text](https://github.com/NerdSmith/task1_TIPaS/blob/0b3440546f1fa2e82c4cac28dadc37f86a5b4ece/screenshots/square2hz.png?raw=true)
 #### 4 hz
 ![alt text](https://github.com/NerdSmith/task1_TIPaS/blob/0b3440546f1fa2e82c4cac28dadc37f86a5b4ece/screenshots/square4hz.png?raw=true)
 #### 8 hz
