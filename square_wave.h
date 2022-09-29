@@ -3,6 +3,6 @@
 
 #include "math_utils.h"
 
-x_y_lists square_wave(int freq, int overSampleRate, int cycles, int harmonics, int ampl = 10);
+x_y_lists square_wave(int freq, int overSampleRate, int cycles, int harmonics, int ampl);
 
 #endif // SQUARE_WAVE_H

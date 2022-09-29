@@ -26,7 +26,7 @@ WavePlot::WavePlot(QWidget* parent)
     ui->wavePlot->replot();
 
     ui->spectrumPlot->addGraph();
-    ui->spectrumPlot->xAxis->setLabel("Time");
+    ui->spectrumPlot->xAxis->setLabel("Frequency (Hz)");
     ui->spectrumPlot->yAxis->setLabel("Amplitude");
     ui->spectrumPlot->xAxis->setRange(0, 5);
     ui->spectrumPlot->yAxis->setRange(-1, 1);
@@ -47,6 +47,7 @@ void WavePlot::on_drawBtn_clicked()
     int freq;
     int overSampleRate = ui->overSampleBoxSlider->value();
     int cycles = ui->cyclesNbSlider->value();
+    int ampl = ui->amplSlider->value();
 
     if (ui->hz1RBtn->isChecked()) {
         freq = 1;
@@ -61,9 +62,10 @@ void WavePlot::on_drawBtn_clicked()
 
     x_y_lists dots;
     if (ui->harmonicRBtn->isChecked()) {
-        dots = sin_wave(freq, overSampleRate, cycles);
+        dots = sin_wave(freq, overSampleRate, cycles, ampl);
     } else if (ui->squareRBtn->isChecked()) {
-        dots = square_wave(freq, overSampleRate, cycles, ui->harmonicsNbSlider->value());
+        int harmonicsNb = ui->harmonicsNbSlider->value();
+        dots = square_wave(freq, overSampleRate, cycles, harmonicsNb, ampl);
     }
 
     ui->wavePlot->graph(0)->setData(
